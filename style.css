@@ -1,0 +1,34 @@
+/* -- RESET -- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* -- LAYOUT -- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 550px;
+    margin: 0 auto;
+	background-color: #fff;
+}
+
+/* -- NAVBAR -- */
+nav {
+    padding: 24px 10px;
+}
+
+.color-form {
+    display: flex;
+}
+
+/* -- SECTION -- */
