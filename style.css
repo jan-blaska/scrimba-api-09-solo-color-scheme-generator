@@ -11,15 +11,22 @@ img {
 /* -- LAYOUT -- */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #000;
+    background-color: #272626;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    position: relative;
 }
 
 .container {
-    max-width: 550px;
-    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 550px;
 	background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
 }
 
 /* -- NAVBAR -- */
@@ -29,6 +36,100 @@ nav {
 
 .color-form {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* -- SECTION -- */
+.color-picker {
+    block-size: 40px;
+    min-inline-size: 60px;
+}
+
+.color-select {
+    position: relative;
+    width: 300px;
+    padding: 0;
+}
+
+select {
+    width: 100%;
+    font-size: 1rem; /* 16px */
+    padding: 0.6em;   
+}
+
+.color-select-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background: #D1D5DB;
+    height: 100%;
+    width: 2.5rem;
+    pointer-events: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.color-select-arrow::before,
+.color-select-arrow::after {
+    --size: 0.45em;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.color-select-arrow::before {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid rgba(0, 0, 0, 0.5);
+    top: 37%;
+}
+
+.color-select-arrow::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid rgba(0, 0, 0, 0.5);
+    top: 63%;
+}
+
+.color-btn,
+select {  
+    border: 1px solid #D1D5DB;
+    background-color: inherit;
+    border-radius: 5px;  
+}
+
+.color-btn {
+    padding: 0.8em;
+    font-size: 0.875rem; /* 14px */
+    font-weight: bold;
+    width: 150px;
+}
+
+.color-btn:hover {
+    cursor: pointer;
+}
+
+/* -- COLOR GRID -- */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 415px 1fr;
+}
+
+.rectangle {
+    background-color: red;
+    width: 100%;
+}
+
+.text-hex {
+    font-size: 0.75rem; /* 12px */
+    font-weight: 400;
+    margin: 15px;
+    text-align: center;
+}
+

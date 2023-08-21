@@ -21,23 +21,27 @@
 <body>
     <div class="container">
         <nav>
-            <form class="color-form">
-                <input type="color" name="color-picker" id="color-picker">
-                <select id="color-scheme-picker" name="color-scheme-picker">
-                    <option value="monochrome">Monochrome</option>
-                    <option value="monochrome-dark">Monochrome-dark</option>
-                    <option value="monochrome-light">Monochrome-light</option>
-                    <option value="analogic">Analogic</option>
-                    <option value="complement">Complement</option>
-                    <option value="analogic-complement">Analogic-complement</option>
-                    <option value="triad">Triad</option>
-                </select>
-                <button class="color-scheme-btn">Get color scheme</button>
+            <form class="color-form" id="color-form">
+                <input type="color" name="color-picker" id="color-picker" class="color-picker" value="#e66465">
+                <div class="color-select">
+                    <select id="color-select" name="color-select">
+                        <option value="monochrome">Monochrome</option>
+                        <option value="monochrome-dark">Monochrome Dark</option>
+                        <option value="monochrome-light">Monochrome Light</option>
+                        <option value="analogic">Analogic</option>
+                        <option value="complement">Complement</option>
+                        <option value="analogic-complement">Analogic Complement</option>
+                        <option value="triad">Triad</option>
+                    </select>
+                    <span class="color-select-arrow"></span>
+                </div>
+
+                <button class="color-btn">Get color scheme</button>
             </form>
         </nav>
-        <section>
-
-        </section>
+        <div class="colors-grid" id="colors-grid">
+            <!-- here the colors are rendered from js -->
+        </div>
     </div>
     <script src="/index.js" type="module"></script>
 </body>
