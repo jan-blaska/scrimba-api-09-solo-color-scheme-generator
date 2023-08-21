@@ -22,7 +22,10 @@ function renderColors(colors) {
         <p class="text-hex">${colors[3].hex.value}</p>
         <p class="text-hex">${colors[4].hex.value}</p>
     `
+    document.body.style.background = `linear-gradient(to right, ${colors[0].hex.value},${colors[1].hex.value},${colors[2].hex.value},${colors[3].hex.value},${colors[4].hex.value})`
 }
+
+
 
 colorFormEl.addEventListener("submit", (e) => {
     e.preventDefault()
