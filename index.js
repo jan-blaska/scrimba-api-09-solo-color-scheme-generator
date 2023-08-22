@@ -9,23 +9,25 @@ function getColorScheme(seedColor, mode) {
         .then(data => renderColors(data.colors))
 }
 
-function renderColors(colors) { 
-    colorsGrid.innerHTML = `
-        <div class="rectangle" style="background-color:${colors[0].hex.value}"></div>
-        <div class="rectangle" style="background-color:${colors[1].hex.value}"></div>
-        <div class="rectangle" style="background-color:${colors[2].hex.value}"></div>
-        <div class="rectangle" style="background-color:${colors[3].hex.value}"></div>
-        <div class="rectangle" style="background-color:${colors[4].hex.value}"></div>
-        <p class="text-hex">${colors[0].hex.value}</p>
-        <p class="text-hex">${colors[1].hex.value}</p>
-        <p class="text-hex">${colors[2].hex.value}</p>
-        <p class="text-hex">${colors[3].hex.value}</p>
-        <p class="text-hex">${colors[4].hex.value}</p>
-    `
-    document.body.style.background = `linear-gradient(to right, ${colors[0].hex.value},${colors[1].hex.value},${colors[2].hex.value},${colors[3].hex.value},${colors[4].hex.value})`
+function renderColors(colors) {
+    const colorsHexValuesArray = colors.map(color => color.hex.value)
+    colorsGrid.innerHTML = (colorsHexValuesArray.map((color) => {
+        return (`
+            <div class="color-box">
+                <div class="rectangle" data-getcolor=${color} style="background-color:${color}"></div>
+                <p class="text-hex" data-getcolor=${color}>${color}</p>
+            </div>
+        `)
+    })).join('')
+    document.body.style.background = `linear-gradient(to right, ${colorsHexValuesArray})`
 }
 
-
+/* copy the color as a text to clipboard */
+document.addEventListener('click', function(e) {
+    if (e.target.dataset.getcolor) {
+        navigator.clipboard.writeText(e.target.dataset.getcolor);
+    }
+})
 
 colorFormEl.addEventListener("submit", (e) => {
     e.preventDefault()
